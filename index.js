@@ -13,22 +13,36 @@ function getValue(name){
     const pool = getValue('pool')
     
     //generate a filename
-    const filename = new Date().getTime().toString() + '-' + name.replace(/\s/g, '-') + ".md"
+    const filename = new Date().getTime().toString() + '-' + name.replace(/\s/g, '-') + ".json"
     
+    function ideascaleLink(pool) {
+      var iLink = "";
+      switch(pool) {
+        case 'NFT Guild':
+          iLink = "https://cardano.ideascale.com/c/idea/384031";
+          break;
+        default:
+          iLink = "";
+          break;
+      }
+      return iLink;
+    }    
     
     //Generate a string mimicing the file structure
     //Indentation is important here
-    let fileText = `---
-Date: ${new Date().toUTCString()}
----
-
-##### ${name} ${ada} ADA
-
-| Date      | Name | Funded Proposal | Budget Item | ADA | Transaction|
-| :---        | :---  | :--- | :--- | :--- | :--- |
-| ${new Date().toUTCString()} | ${name} | ${pool} | ${budgetB} | ${ada} | [link](https://cardanoscan.io/transaction/${txid})|
-
-Description: ${description}`
+    let fileText = `{
+  "id" : ${new Date().getTime().toString()},
+  "date": "${new Date().toUTCString()}",
+  "project": "NFT Guild",
+  "pool": "${pool}",
+  "Ideascale": "${ideascaleLink(pool)}"
+  "budget": "${budgetB}",
+  "ada": ${ada},
+  "name": "${name}",
+  "wallet": "${txid}",
+  "description": "${description}"
+}
+`
     
     //Encode string to URI format
     const encodedFileText = encodeURIComponent(fileText)
