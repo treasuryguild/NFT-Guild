@@ -40,6 +40,7 @@ function getValue(name){
   "ada": ${ada},
   "name": "${name}",
   "wallet": "${txid}",
+  "transaction id": "",
   "description": "${description}"
 }
 `
