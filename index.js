@@ -35,7 +35,7 @@ function getValue(name){
   "date": "${new Date().toUTCString()}",
   "project": "NFT Guild",
   "pool": "${pool}",
-  "Ideascale": "${ideascaleLink(pool)}"
+  "Ideascale": "${ideascaleLink(pool)}",
   "budget": "${budgetB}",
   "ada": ${ada},
   "name": "${name}",
