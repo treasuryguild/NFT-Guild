@@ -9,4 +9,4 @@ Welcome to the NFT Guild Treasury GitBook. Here you will find the current state 
 ## Menu
 
 * [Balances](balances.md)
-* Transactions
+* [Transactions](transactions/)
